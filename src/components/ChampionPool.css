@@ -1,0 +1,601 @@
+/* ==========================================
+   ESTILOS DE TIER LIST TÁCTICA & ESPORTS HUD
+   ========================================== */
+
+.cp-esports-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #0b0e14;
+  color: #c7d5e0;
+  padding: 24px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Encabezado */
+.cp-esports-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #121824;
+  border: 1px solid #1e2636;
+  padding: 16px 24px;
+  border-radius: 8px;
+}
+
+.cp-esports-title-group h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.cp-esports-subtitle {
+  font-size: 0.75rem;
+  color: #7b8fa4;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.cp-esports-config-mini {
+  display: flex;
+  gap: 12px;
+}
+
+.cp-esports-config-mini input,
+.cp-esports-config-mini select {
+  background: #0b0e14;
+  border: 1px solid #2a344a;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.cp-esports-config-mini input:focus,
+.cp-esports-config-mini select:focus {
+  border-color: #3b82f6;
+}
+
+/* Workspace Grid */
+.cp-esports-workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .cp-esports-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cp-esports-pane {
+  background: #121824;
+  border: 1px solid #1e2636;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 550px;
+}
+
+.cp-pane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e2636;
+  padding-bottom: 12px;
+}
+
+.cp-pane-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #f3f4f6;
+  letter-spacing: 0.5px;
+}
+
+.cp-badge-count {
+  background: #1e2636;
+  color: #94a3b8;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Pestañas de Roles */
+.cp-role-tabs {
+  display: flex;
+  gap: 6px;
+  background: #0b0e14;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.cp-role-tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 6px 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cp-role-tab-btn:hover {
+  color: #fff;
+}
+
+.cp-role-tab-btn.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Barra de Búsqueda */
+.cp-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cp-search-wrapper .search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 0.85rem;
+}
+
+.cp-search-input {
+  width: 100%;
+  background: #0b0e14;
+  border: 1px solid #1e2636;
+  color: #fff;
+  padding: 8px 12px 8px 36px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.cp-search-input:focus {
+  border-color: #3b82f6;
+}
+
+/* Grilla de Campeones Izquierda */
+.cp-champs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.cp-champs-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cp-champs-grid::-webkit-scrollbar-thumb {
+  background: #1e2636;
+  border-radius: 3px;
+}
+
+.cp-champ-card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0b0e14;
+  border: 1px solid #1e2636;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cp-champ-card-item:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.cp-champ-card-item.is-selected {
+  border-color: #10b981;
+  opacity: 0.6;
+}
+
+.cp-avatar-wrap {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+
+.cp-avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.selected-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #10b981;
+  color: white;
+  font-size: 10px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.cp-champ-name {
+  font-size: 0.65rem;
+  margin-top: 4px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  color: #94a3b8;
+}
+
+/* Panel Derecho: Tiers */
+.cp-right-pane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cp-title-with-clear {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cp-clear-all-btn {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cp-clear-all-btn:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+.cp-tiers-wrapper-esports {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.cp-tier-row-esports {
+  display: flex;
+  background: #0b0e14;
+  border: 1px solid #1e2636;
+  border-radius: 6px;
+  min-height: 65px;
+  overflow: hidden;
+}
+
+.cp-tier-badge-col {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  border-right: 1px solid #1e2636;
+  padding: 4px;
+}
+
+/* Colores por Tier */
+.cp-tier-S .cp-tier-badge-col { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+.cp-tier-A .cp-tier-badge-col { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.cp-tier-B .cp-tier-badge-col { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+.cp-tier-C .cp-tier-badge-col { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+
+.cp-tier-sub-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.tier-count {
+  font-size: 0.65rem;
+  color: #64748b;
+}
+
+.cp-clear-tier-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.65rem;
+  padding: 0;
+  opacity: 0.6;
+}
+
+.cp-clear-tier-btn:hover {
+  opacity: 1;
+}
+
+.cp-tier-content-col {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+  align-items: center;
+}
+
+.cp-empty-tier-text {
+  color: #475569;
+  font-size: 0.75rem;
+  font-style: italic;
+  padding-left: 4px;
+}
+
+.cp-minimal-icon-chip {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #2a344a;
+  cursor: grab;
+  transition: transform 0.1s;
+}
+
+.cp-minimal-icon-chip:hover {
+  transform: scale(1.05);
+}
+
+.cp-minimal-icon-chip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cp-minimal-remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ef4444;
+  border: none;
+  font-size: 9px;
+  width: 14px;
+  height: 14px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cp-minimal-icon-chip:hover .cp-minimal-remove {
+  display: flex;
+}
+
+.cp-save-master-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+  margin-top: auto;
+}
+
+.cp-save-master-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ==========================================
+   SECCIÓN MODERNIZADA DE POOLS GUARDADAS
+   ========================================== */
+
+.cp-saved-section-modern {
+  background: #121824;
+  border: 1px solid #1e2636;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cp-saved-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e2636;
+  padding-bottom: 14px;
+}
+
+.cp-saved-title-box h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.cp-saved-subtitle {
+  font-size: 0.7rem;
+  color: #7b8fa4;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.cp-saved-total-badge {
+  background: #1e2636;
+  color: #38bdf8;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.cp-saved-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: #0b0e14;
+  border: 1px dashed #1e2636;
+  border-radius: 6px;
+  color: #64748b;
+  gap: 10px;
+  text-align: center;
+}
+
+.cp-saved-empty-state .empty-icon {
+  font-size: 2rem;
+}
+
+.cp-saved-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.cp-saved-card-modern {
+  background: #0b0e14;
+  border: 1px solid #1e2636;
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s;
+}
+
+.cp-saved-card-modern:hover {
+  border-color: #334155;
+}
+
+.cp-saved-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e2636;
+  padding-bottom: 8px;
+}
+
+.cp-saved-player-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cp-saved-player-name {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.cp-saved-role-badge {
+  background: #1e2636;
+  color: #60a5fa;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.cp-saved-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cp-saved-date {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+.cp-delete-pool-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.cp-delete-pool-btn:hover {
+  opacity: 1;
+}
+
+.cp-saved-tiers-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cp-saved-tier-row {
+  display: flex;
+  align-items: center;
+  background: rgba(30, 41, 54, 0.4);
+  border-radius: 4px;
+  padding: 4px 8px;
+  gap: 8px;
+}
+
+.cp-saved-tier-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  width: 24px;
+}
+
+.tier-S .cp-saved-tier-tag { color: #ef4444; }
+.tier-A .cp-saved-tier-tag { color: #f59e0b; }
+.tier-B .cp-saved-tier-tag { color: #3b82f6; }
+.tier-C .cp-saved-tier-tag { color: #10b981; }
+
+.cp-saved-tier-champs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.cp-saved-champ-mini {
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid #2a344a;
+}
+
+.cp-saved-champ-mini img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

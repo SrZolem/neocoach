@@ -1,0 +1,1293 @@
+@import url('https://fonts.googleapis.com/css2?family=Spiegel:wght@400;600;700&display=swap');
+
+/* =========================================================
+   SISTEMA DE DISEÑO HEXTECH / LEAGUE OF LEGENDS (UNIFICADO)
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #010a13;
+  color: #cdbe91;
+  font-family: 'Spiegel', 'Segoe UI', sans-serif;
+  user-select: none;
+}
+
+/* Layout General */
+.layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0a1428 0%, #010a13 100%);
+  overflow-x: hidden !important;
+}
+
+/* Sidebar Izquierdo (Navegación) */
+.sidebar-left {
+  width: 220px;
+  min-width: 220px;
+  height: 100%;
+  background: #030811 !important;
+  border-right: 1px solid rgba(120, 90, 40, 0.4) !important;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 12px;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.7);
+  z-index: 20;
+}
+
+.brand {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #3c3c41;
+  margin-bottom: 20px;
+}
+
+.brand h2 {
+  color: #f0e6d2;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(200, 170, 110, 0.4);
+}
+
+.brand .version {
+  font-size: 0.6rem;
+  color: #785a28;
+  letter-spacing: 1px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 1. Botones del Menú Lateral (Aura Dorada Hextech) */
+.nav-btn {
+  background: linear-gradient(180deg, #1e2328 0%, #111315 100%);
+  border: 1px solid #785a28;
+  color: #cdbe91;
+  padding: 10px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.nav-btn:hover {
+  background: linear-gradient(180deg, #2c323b 0%, #1a1e23 100%);
+  border-color: #f0e6d2 !important;
+  color: #ffffff !important;
+  box-shadow: 
+    0 0 10px rgba(200, 170, 110, 0.7),
+    0 0 20px rgba(200, 170, 110, 0.3),
+    inset 0 0 8px rgba(240, 230, 210, 0.3) !important;
+  text-shadow: 0 0 6px rgba(240, 230, 210, 0.8) !important;
+}
+
+.nav-btn.active {
+  background: linear-gradient(180deg, #1e2838 0%, #0a1428 100%) !important;
+  border-color: #c8aa6e !important;
+  color: #f0e6d2 !important;
+  box-shadow: 
+    0 0 12px rgba(200, 170, 110, 0.9),
+    0 0 24px rgba(200, 170, 110, 0.4),
+    inset 0 0 10px rgba(200, 170, 110, 0.4) !important;
+  text-shadow: 0 0 8px #c8aa6e !important;
+}
+
+/* Área Central Main */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.top-bar {
+  height: 44px;
+  background: #02060e !important;
+  border-bottom: 1px solid rgba(120, 90, 40, 0.3) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.top-bar h3 {
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  color: #a09b8c;
+  text-transform: uppercase;
+}
+
+.view-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Contenedor del Tablero (MapBoard) */
+.workspace-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-x: hidden !important;
+}
+
+.workspace {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
+}
+
+/* 2. Barra de Herramientas del Mapa (Toolbar) */
+.toolbar {
+  position: absolute;
+  top: 14px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(2, 6, 14, 0.85) !important;
+  border: 1px solid rgba(200, 170, 110, 0.3) !important;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  padding: 4px 8px !important;
+  border-radius: 2px;
+}
+
+.tool-btn {
+  background: rgba(10, 20, 40, 0.75) !important;
+  border: 1px solid rgba(120, 90, 40, 0.5) !important;
+  color: #cdbe91 !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.8px;
+  padding: 6px 12px !important;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: all 0.2s ease-out !important;
+  display: flex;
+  align-items: center;
+}
+
+.tool-btn svg {
+  margin-right: 4px;
+}
+
+.tool-btn:hover {
+  background: rgba(20, 35, 60, 0.9) !important;
+  border-color: #f0e6d2 !important;
+  color: #ffffff !important;
+  box-shadow: 
+    0 0 10px rgba(200, 170, 110, 0.8),
+    0 0 18px rgba(200, 170, 110, 0.4),
+    inset 0 0 6px rgba(240, 230, 210, 0.3) !important;
+}
+
+.tool-btn.active {
+  background: linear-gradient(180deg, #1e2328 0%, #091428 100%) !important;
+  border-color: #c8aa6e !important;
+  color: #f0e6d2 !important;
+  box-shadow: 
+    0 0 12px rgba(200, 170, 110, 0.9),
+    0 0 20px rgba(0, 216, 255, 0.4),
+    inset 0 0 8px rgba(200, 170, 110, 0.5) !important;
+}
+
+.tool-btn.danger {
+  border-color: rgba(138, 31, 31, 0.5) !important;
+  color: #e06c6c !important;
+}
+
+.tool-btn.danger:hover {
+  background: rgba(80, 15, 15, 0.9) !important;
+  border-color: #ff4d4d !important;
+  color: #ffffff !important;
+  box-shadow: 
+    0 0 10px rgba(255, 77, 77, 0.7),
+    0 0 20px rgba(255, 42, 42, 0.4),
+    inset 0 0 8px rgba(255, 77, 77, 0.3) !important;
+}
+
+/* Selector de Colores en la Toolbar */
+.color-picker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.7);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0 4px;
+}
+
+.color-dot {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 50% !important;
+  border: 2px solid transparent !important;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.color-dot:hover {
+  transform: scale(1.25);
+}
+
+.color-dot.selected {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+/* Controles de Cámara Flotantes */
+.camera-controls {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 50;
+  display: flex;
+  gap: 4px;
+  background-color: rgba(15, 23, 42, 0.85);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid #c8aa6e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.camera-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #cdbe91;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.camera-btn:hover {
+  background-color: rgba(200, 170, 110, 0.2);
+  color: #f0e6d2;
+  border-color: #c8aa6e;
+}
+
+.camera-btn:active {
+  transform: scale(0.92);
+}
+
+/* Mapa y Capas Dinámicas */
+.map-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.map-wrapper.tool-select,
+.tactical-canvas.tool-select {
+  cursor: grab;
+}
+
+.map-wrapper.tool-select:active {
+  cursor: grabbing;
+}
+
+.map-wrapper.tool-draw,
+.tactical-canvas.tool-draw {
+  cursor: crosshair !important;
+}
+
+.map-wrapper.tool-eraser,
+.tactical-canvas.tool-eraser {
+  cursor: cell !important;
+}
+
+.map-image {
+  max-height: 82vh;
+  width: auto;
+  object-fit: contain;
+  border: 1px solid #785a28;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+.tactical-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tactical-canvas.tool-draw,
+.tactical-canvas.tool-eraser {
+  pointer-events: auto;
+}
+
+.map-svg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+}
+
+/* =========================================================
+   BARRAS LATERALES FLOTANTES DE DRAFT (LEFT & RIGHT)
+   ========================================================= */
+
+.draft-sidebar {
+  position: absolute;
+  top: 60px;
+  bottom: 70px;
+  width: 140px;
+  background: rgba(10, 14, 23, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 80;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.left-sidebar {
+  left: 0;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-left: none;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.left-sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+.right-sidebar {
+  right: 0;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-right: none;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.right-sidebar.collapsed {
+  transform: translateX(100%);
+}
+
+/* Botones para ocultar/desplegar barras laterales */
+.toggle-sidebar-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1e293b;
+  color: #38bdf8;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 24px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  z-index: 85;
+}
+
+.left-btn {
+  right: -24px;
+  border-radius: 0 8px 8px 0;
+}
+
+.right-btn {
+  left: -24px;
+  border-radius: 8px 0 0 8px;
+}
+
+.toggle-sidebar-btn:hover {
+  background: #0ea5e9;
+  color: #fff;
+}
+
+/* Contenido interno de las barras laterales */
+.sidebar-content {
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sidebar-content::-webkit-scrollbar {
+  width: 3px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background: #c8aa6e;
+  border-radius: 2px;
+}
+
+.team-header {
+  text-align: center;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.team-header.blue {
+  border-color: #00d2ff;
+}
+
+.team-header.blue h3 {
+  color: #00d2ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.team-header.red {
+  border-color: #ff4655;
+}
+
+.team-header.red h3 {
+  color: #ff4655;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* Secciones de Picks y Bans en Sidebar */
+.draft-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.section-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.bans-title {
+  color: #ef4444;
+}
+
+.slots-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Slots Individuales de Draft */
+.draft-slot {
+  width: 52px;
+  height: 52px;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.draft-slot.filled {
+  border: 2px solid #38bdf8;
+  cursor: grab;
+}
+
+.left-sidebar .draft-slot.filled {
+  border-color: #00d2ff;
+  box-shadow: 0 0 6px rgba(0, 210, 255, 0.3);
+}
+
+.right-sidebar .draft-slot.filled {
+  border-color: #ff4655;
+  box-shadow: 0 0 6px rgba(255, 70, 85, 0.3);
+}
+
+.draft-slot.filled:hover {
+  transform: scale(1.05);
+}
+
+.draft-slot.filled:active {
+  cursor: grabbing;
+}
+
+.draft-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slot-number {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* Bans Slots más pequeños */
+.ban-slot {
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+}
+
+.ban-slot.filled {
+  filter: grayscale(0.8) brightness(0.7);
+  border-color: #ef4444 !important;
+}
+
+/* Fichas en el Mapa y Tokens */
+.placed-token {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  background: #010a13;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease !important;
+}
+
+.placed-token.team-blue {
+  border: 2px solid #00d8ff !important;
+  box-shadow: 0 0 8px rgba(0, 216, 255, 0.7);
+}
+
+.placed-token.team-red {
+  border: 2px solid #ff2a2a !important;
+  box-shadow: 0 0 8px rgba(255, 42, 42, 0.7);
+}
+
+.placed-token:hover {
+  transform: translate(-50%, -50%) scale(1.2) !important;
+  z-index: 50 !important;
+}
+
+.placed-token.team-blue:hover {
+  box-shadow: 
+    0 0 14px #00d8ff,
+    0 0 28px rgba(0, 216, 255, 0.6),
+    inset 0 0 8px rgba(0, 216, 255, 0.8) !important;
+}
+
+.placed-token.team-red:hover {
+  box-shadow: 
+    0 0 14px #ff2a2a,
+    0 0 28px rgba(255, 42, 42, 0.6),
+    inset 0 0 8px rgba(255, 42, 42, 0.8) !important;
+}
+
+.placed-token.eraser-hover:hover {
+  filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.9));
+  transform: scale(1.1);
+}
+
+.placed-token img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* =========================================================
+   DOCK FLOTANTE HEXTECH (BOTTOM BAR REFINADA)
+   ========================================================= */
+
+.bottom-bar-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  padding-bottom: 0;
+}
+
+.bottom-bar-triggers {
+  display: flex;
+  gap: 6px;
+  pointer-events: auto;
+  margin-bottom: -1px;
+  z-index: 2;
+}
+
+.tab-btn {
+  background: rgba(2, 8, 16, 0.88);
+  border: 1px solid rgba(200, 170, 110, 0.35);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  color: #cdbe91;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  padding: 5px 14px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+  border-color: rgba(240, 230, 210, 0.7);
+  box-shadow: 
+    0 0 12px rgba(200, 170, 110, 0.5),
+    inset 0 0 6px rgba(240, 230, 210, 0.2);
+}
+
+.tab-btn.active {
+  background: linear-gradient(180deg, #1e2838 0%, #06101e 100%);
+  border-color: #c8aa6e;
+  color: #f0e6d2;
+  box-shadow: 
+    0 0 14px rgba(200, 170, 110, 0.7),
+    inset 0 0 8px rgba(200, 170, 110, 0.3);
+}
+
+.bottom-drawer-content {
+  width: 88%;
+  max-width: 860px;
+  background: rgba(1, 10, 19, 0.93);
+  border: 1px solid rgba(200, 170, 110, 0.4);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  backdrop-filter: blur(12px);
+  padding: 10px 14px 8px 14px;
+  box-shadow: 
+    0 -8px 25px rgba(0, 0, 0, 0.85),
+    0 0 15px rgba(200, 170, 110, 0.12);
+  pointer-events: auto;
+  animation: slideUp 0.2s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --- PANEL DE CAMPEONES INFERIOR --- */
+.champions-bottom-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 4px;
+}
+
+.team-selector {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 0;
+  min-width: 120px;
+}
+
+.team-btn {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #3c2d1d;
+  background: #091428;
+  color: #a09b8c;
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.team-btn.blue.selected {
+  background: #0a3254;
+  border-color: #00d8ff;
+  color: #00d8ff;
+}
+
+.team-btn.red.selected {
+  background: #541010;
+  border-color: #ff3333;
+  color: #ff3333;
+}
+
+/* Selector de Roles con Logos Oficiales */
+.role-filter-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin-bottom: 0;
+  flex: 1;
+  max-width: 280px;
+  background: #010a13;
+  border: 1px solid rgba(200, 170, 110, 0.4);
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.role-btn {
+  flex: 1;
+  height: 32px;
+  background: rgba(10, 20, 40, 0.7);
+  border: 1px solid rgba(120, 90, 40, 0.3);
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.role-official-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0.7) sepia(0.3) hue-rotate(15deg);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.role-btn:hover {
+  border-color: #f0e6d2 !important;
+  background: rgba(30, 50, 80, 0.8) !important;
+  box-shadow: 0 0 10px rgba(200, 170, 110, 0.6) !important;
+}
+
+.role-btn:hover .role-official-icon {
+  filter: brightness(1.2) drop-shadow(0 0 4px #c8aa6e);
+  transform: scale(1.15);
+}
+
+.role-btn.active {
+  background: linear-gradient(180deg, #1e2d42 0%, #091428 100%) !important;
+  border-color: #c8aa6e !important;
+  box-shadow: 
+    0 0 12px rgba(200, 170, 110, 0.8),
+    inset 0 0 6px rgba(200, 170, 110, 0.4) !important;
+}
+
+.role-btn.active .role-official-icon {
+  filter: brightness(1.4) drop-shadow(0 0 6px #f0e6d2);
+  transform: scale(1.15);
+}
+
+.search-input {
+  width: 100%;
+  max-width: 180px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(200, 170, 110, 0.3);
+  border-radius: 4px;
+  color: #f0e6d2;
+  font-size: 0.75rem;
+  padding: 0 8px;
+  margin-bottom: 0;
+}
+
+.search-input:focus {
+  border-color: #c8aa6e;
+  outline: none;
+}
+
+/* Lista horizontal de Campeones compacta */
+.horizontal-champs-list {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 4px 2px 6px 2px;
+}
+
+.horizontal-champs-list::-webkit-scrollbar {
+  height: 4px;
+}
+
+.horizontal-champs-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.horizontal-champs-list::-webkit-scrollbar-thumb {
+  background: #c8aa6e;
+  border-radius: 2px;
+}
+
+.horizontal-champs-list .asset-card {
+  min-width: 48px;
+  max-width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid rgba(200, 170, 110, 0.3);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.15s ease-out;
+  cursor: grab;
+  background: #010a13;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.horizontal-champs-list .asset-card:hover {
+  transform: translateY(-3px) scale(1.06);
+  border-color: #f0e6d2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), 0 0 8px rgba(200, 170, 110, 0.5);
+}
+
+.horizontal-champs-list .asset-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.horizontal-champs-list .asset-card p,
+.horizontal-champs-list .asset-card span {
+  display: none;
+}
+
+/* --- PANEL DE OBJETIVOS --- */
+.objectives-horizontal-list {
+  display: flex !important;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.objectives-horizontal-list::-webkit-scrollbar {
+  height: 4px;
+}
+
+.objectives-horizontal-list::-webkit-scrollbar-thumb {
+  background: #c8aa6e;
+  border-radius: 2px;
+}
+
+.horizontal-obj-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  background: rgba(1, 10, 19, 0.8);
+  border: 1px solid rgba(200, 170, 110, 0.3);
+  border-radius: 4px;
+  cursor: grab;
+  min-width: 75px;
+  transition: all 0.2s ease !important;
+}
+
+.horizontal-obj-card:hover {
+  border-color: #f0e6d2 !important;
+  background: rgba(10, 30, 60, 0.9);
+  color: #ffffff;
+  box-shadow: 
+    0 0 10px rgba(200, 170, 110, 0.8),
+    0 0 18px rgba(200, 170, 110, 0.3) !important;
+}
+
+.obj-icon-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px;
+  border: 1px solid rgba(200, 170, 110, 0.3);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+}
+
+.obj-name {
+  font-size: 0.7rem;
+  color: #cdbe91;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   HISTORIAL MODAL STYLES
+   ========================================================= */
+
+.history-btn {
+  margin-top: auto;
+  border-color: #c8aa6e !important;
+  color: #c8aa6e !important;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #091428;
+  border: 1px solid #c8aa6e;
+  border-radius: 8px;
+  width: 550px;
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  color: #f0e6d2;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #1e2328;
+}
+
+.modal-header h2 { 
+  margin: 0; 
+  font-size: 1.2rem; 
+  color: #c8aa6e; 
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #a09b8c;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 15px 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.no-history {
+  text-align: center;
+  color: #5b5a56;
+  padding: 20px 0;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-card {
+  background: #010a13;
+  border: 1px solid #1e2328;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #a09b8c;
+}
+
+.history-badge {
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+.history-badge.torneo { background: #005a82; color: #fff; }
+.history-badge.libre { background: #3c3c3c; color: #fff; }
+
+.history-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.mini-team { display: flex; gap: 4px; }
+.mini-team.blue { color: #00a8e8; }
+.mini-team.red { color: #e63946; }
+.mini-champ { background: #091428; padding: 2px 5px; border-radius: 2px; }
+
+.vs { font-weight: bold; color: #c8aa6e; font-size: 0.7rem; }
+
+.history-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.load-btn {
+  background: #c8aa6e;
+  color: #010a13;
+  border: none;
+  padding: 4px 10px;
+  font-weight: bold;
+  font-size: 0.75rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: transparent;
+  border: 1px solid #ff4655;
+  color: #ff4655;
+  padding: 2px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.modal-footer {
+  padding: 10px 20px;
+  border-top: 1px solid #1e2328;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.clear-all-btn {
+  background: transparent;
+  border: 1px solid #ff4655;
+  color: #ff4655;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Utilidades Extras y Limpieza */
+.dot-team {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-team.blue {
+  background: #38bdf8;
+  box-shadow: 0 0 6px #38bdf8;
+}
+.dot-team.red {
+  background: #ef4444;
+  box-shadow: 0 0 6px #ef4444;
+}
+
+.content-box {
+  padding: 40px;
+  text-align: center;
+}/* Contenedor principal de la barra inferior */
+.bottom-bar-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  pointer-events: auto; /* Vital para que se pueda hacer click */
+}
+
+/* Botones de disparo (Campeones / Objetivos) */
+.bottom-bar-triggers {
+  display: flex;
+  gap: 10px;
+  background: rgba(4, 7, 13, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: none;
+}
+
+/* Contenido desplegable (el cajón que se abre al hacer click) */
+.bottom-drawer-content {
+  width: 100%;
+  background: rgba(4, 7, 13, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(0, 240, 255, 0.4);
+  padding: 15px;
+  max-height: 280px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.8);
+}/* ==========================================
+   AJUSTES DE BARRA INFERIOR Y SELECTOR
+   ========================================== */
+
+/* 1. Hace el contenedor negro de la barra mucho más compacto */
+.bottom-bar-panel {
+  padding: 8px 16px 12px 16px !important; /* Reducimos el colchón interno */
+  background: rgba(1, 10, 19, 0.92) !important; /* Mantiene estética LoL con ligera transparencia */
+  backdrop-filter: blur(6px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Reducimos margen superior e inferior de la fila de controles (equipo, roles, buscador) */
+.picker-header {
+  margin-bottom: 8px !important;
+  gap: 8px !important;
+}
+
+/* 2. Agrandamos los íconos de los campeones */
+.champ-card {
+  width: 48px !important;       /* Agrandado desde ~32px */
+  height: 48px !important;      /* Agrandado desde ~32px */
+  min-width: 48px !important;   /* Evita que se compriman en pantallas chicas */
+  border-radius: 4px;
+}
+
+.champ-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+/* Efecto hover sutil para resaltar al pasar el mouse */
+.champ-card:hover {
+  transform: scale(1.12);
+  z-index: 5;
+}
+
+/* 3. Ajustes para la lista de Objetivos y Minions en el otro tab */
+.horizontal-obj-card {
+  padding: 6px 10px !important;
+  height: 48px !important;
+}
+
+.horizontal-obj-card .obj-icon-img {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* 4. Scrollbar fina y elegante para la lista horizontal */
+.champ-scroll::-webkit-scrollbar,
+.objectives-horizontal-list::-webkit-scrollbar {
+  height: 4px !important;
+}
+
+.champ-scroll::-webkit-scrollbar-thumb,
+.objectives-horizontal-list::-webkit-scrollbar-thumb {
+  background: #c89b3c !important;
+  border-radius: 2px;
+}/* Asegura que el contenedor principal ocupe toda la pantalla */
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #0c0e12;
+}
+
+/* Barra lateral izquierda fija y distribuida en columnas */
+.sidebar-left {
+  width: 260px;
+  background-color: #090a0f;
+  border-right: 1px solid #1e2328;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+/* Contenedor superior de la barra para que no colapse */
+.sidebar-left > div:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pie de la barra lateral donde vive el botón de configuración */
+.sidebar-footer {
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #090a0f;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}/* Contenedor de cada sección o pantalla de tu app */
+.view-container {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInSmooth 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes fadeInSmooth {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}/* Animación fluida optimizada por GPU */
+.view-container {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInSmooth 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes fadeInSmooth {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

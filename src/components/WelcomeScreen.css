@@ -1,0 +1,163 @@
+.welcome-screen-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #02080e 0%, #06181e 50%, #030d16 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  font-family: inherit;
+  overflow: hidden;
+}
+
+/* Oleadas celestes de fondo */
+.welcome-glow-effect {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(10, 200, 185, 0.12) 0%, rgba(0, 150, 255, 0.04) 45%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  animation: wavePulse 9s ease-in-out infinite alternate;
+}
+
+@keyframes wavePulse {
+  0% {
+    transform: scale(0.9) translate(-15px, -10px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.15) translate(15px, 20px);
+    opacity: 0.9;
+  }
+}
+
+.welcome-content-box {
+  position: relative;
+  background: linear-gradient(180deg, rgba(6, 18, 30, 0.96) 0%, rgba(2, 8, 14, 0.99) 100%);
+  border: 1px solid #c8aa6d;
+  box-shadow: 0 0 40px rgba(200, 170, 109, 0.25), inset 0 0 30px rgba(10, 200, 185, 0.1);
+  border-radius: 12px;
+  padding: 45px 55px;
+  text-align: center;
+  max-width: 720px;
+  width: 90%;
+  backdrop-filter: blur(16px);
+  animation: fadeInWelcome 0.6s ease-out forwards;
+}
+
+.welcome-brand-tag {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #0ac8b9;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* Estilo de logo oficial tipo League of Legends (sin cortes) */
+.lol-logo-container {
+  margin-bottom: 18px;
+  display: inline-block;
+  position: relative;
+  padding: 0 10px;
+}
+
+.lol-logo-text {
+  font-size: 44px;
+  font-weight: 900;
+  color: #fce3a7;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-shadow: 
+    0 2px 0 #b38f4e, 
+    0 4px 0 #785a26, 
+    0 6px 10px rgba(0, 0, 0, 0.8),
+    0 0 18px rgba(252, 227, 167, 0.5);
+}
+
+.lol-logo-underline {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #c8aa6d, transparent);
+  margin-top: 6px;
+}
+
+.welcome-subtitle {
+  font-size: 13.5px;
+  color: #a0b0bc;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cuadrícula de herramientas alineadas */
+.welcome-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.welcome-feature-item {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 10px;
+  background: rgba(200, 170, 109, 0.04);
+  border: 1px solid rgba(200, 170, 109, 0.2);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  color: #c8aa6d;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.feature-svg-icon {
+  width: 20px;
+  height: 20px;
+  stroke: #c8aa6d;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(200, 170, 109, 0.3));
+}
+
+.welcome-start-btn {
+  position: relative;
+  background: linear-gradient(135deg, #c8aa6d 0%, #98783d 100%);
+  color: #02080e;
+  border: 1px solid #f0e6d2;
+  padding: 15px 32px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(200, 170, 109, 0.4);
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.welcome-start-btn:hover {
+  background: linear-gradient(135deg, #dfbc77 0%, #c8aa6d 100%);
+  box-shadow: 0 0 30px rgba(10, 200, 185, 0.6), 0 0 20px rgba(200, 170, 109, 0.8);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInWelcome {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

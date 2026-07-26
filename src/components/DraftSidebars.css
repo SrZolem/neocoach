@@ -1,0 +1,300 @@
+/* ==========================================================================
+   NEOCOACH ESPORTS - TARJETAS FLOTANTES TRANSPARENTES PARA ZOOM
+   ========================================================================== */
+
+.esports-hud-panel {
+  position: relative;
+  width: 255px;
+  background: transparent !important;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+  z-index: 25;
+  box-sizing: border-box;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.panel-header-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.panel-team-title {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 3px;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  background: rgba(4, 7, 13, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blue-glow-text {
+  color: #00f0ff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+  border-color: rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.red-glow-text {
+  color: #ff2a5f;
+  text-shadow: 0 0 10px rgba(255, 42, 95, 0.7);
+  border-color: rgba(255, 42, 95, 0.3);
+  box-shadow: 0 0 15px rgba(255, 42, 95, 0.2);
+}
+
+.hud-category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: transparent;
+}
+
+.category-title {
+  font-size: 9px;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.picks-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Tarjetas flotantes: FONDO TOTALMENTE TRANSPARENTE */
+.neon-floating-card {
+  height: 52px;
+  width: 100%;
+  background: transparent !important;
+  backdrop-filter: none;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+/* Estilo Neón Azul Transparente */
+.neon-floating-card.blue-neon {
+  border: 1px solid rgba(0, 240, 255, 0.6) !important;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.35) !important;
+}
+
+.neon-floating-card.blue-neon.is-populated:hover {
+  border-color: #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.7) !important;
+  transform: translateY(-2px);
+}
+
+/* Estilo Neón Rojo Transparente */
+.neon-floating-card.red-neon {
+  border: 1px solid rgba(255, 42, 95, 0.6) !important;
+  box-shadow: 0 0 12px rgba(255, 42, 95, 0.35) !important;
+}
+
+.neon-floating-card.red-neon.is-populated:hover {
+  border-color: #ff2a5f;
+  box-shadow: 0 0 20px rgba(255, 42, 95, 0.7) !important;
+  transform: translateY(-2px);
+}
+
+.neon-floating-card.is-populated {
+  cursor: grab;
+}
+
+.neon-floating-card.is-populated:active {
+  cursor: grabbing;
+}
+
+.card-horizontal-splash-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.card-horizontal-splash-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: contrast(110%) brightness(90%);
+}
+
+.splash-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(3, 7, 15, 0.85) 0%, rgba(3, 7, 15, 0.5) 50%, rgba(3, 7, 15, 0.2) 100%);
+  z-index: 2;
+}
+
+.card-pro-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  background: transparent;
+}
+
+.pro-champion-name {
+  font-size: 13px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pro-role-box {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 1px 6px;
+  border-radius: 3px;
+  width: fit-content;
+}
+
+.blue-neon .pro-role-box {
+  border-color: rgba(0, 240, 255, 0.4);
+}
+
+.red-neon .pro-role-box {
+  border-color: rgba(255, 42, 95, 0.4);
+}
+
+.pro-role-text {
+  font-size: 7px;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.red-neon .pro-role-text {
+  color: #fb7185;
+}
+
+.empty-slot-inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: transparent !important;
+}
+
+.empty-number-badge {
+  font-size: 12px;
+  font-weight: 900;
+  color: #64748b;
+}
+
+.empty-text-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 1.5px;
+}
+
+.bans-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  background: transparent;
+}
+
+.tactical-ban-thumb {
+  aspect-ratio: 1;
+  background: transparent !important;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.blue-ban-neon {
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.25);
+}
+
+.red-ban-neon {
+  border: 1px solid rgba(255, 42, 95, 0.4);
+  box-shadow: 0 0 6px rgba(255, 42, 95, 0.25);
+}
+
+.tactical-ban-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(40%) contrast(110%);
+}/* Contenedor principal de cada tarjeta de pick */
+.pick-card {
+  position: relative;
+  width: 100%;
+  height: 140px; /* Ajusta según la altura que maneje tu diseño original */
+  overflow: hidden;
+  border-radius: 4px;
+  /* Si usas clip-path para formas inclinadas, colócalo aquí: */
+  /* clip-path: ...; */
+}
+
+/* Imagen del splash art dentro del pick */
+.pick-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Clave para que la imagen cubra el espacio sin distorsionarse ni desbordar */
+  object-position: center;
+  display: block;
+}
+
+/* Caja de texto del nombre del campeón */
+.champ-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 6px 8px;
+  z-index: 2;
+}
+
+.champ-name {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
